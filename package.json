@@ -1,7 +1,7 @@
 {
-    "name": "naming-flutter-outline",
-    "displayName": "Naming Flutter Outline",
-    "description": "Add naming feature to flutter outline",
+    "name": "flutter-outline-labeler",
+    "displayName": "Flutter Outline Labeler",
+    "description": "Add custom labeling feature to flutter outline",
     "publisher": "Ryu G.H",
     "keywords": [
         "dart",
@@ -10,7 +10,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/mindnect/naming-flutter-outline"
+        "url": "https://github.com/mindnect/flutter_outline_labeler"
     },
     "icon": "media/flutter-red.png",
     "extensionDependencies": [
