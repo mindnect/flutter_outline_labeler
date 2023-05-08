@@ -2,7 +2,7 @@
     "name": "flutter-outline-labeler",
     "displayName": "Flutter Outline Labeler",
     "description": "Add custom labeling feature to flutter outline",
-    "publisher": "Ryu G.H",
+    "publisher": "Ryu GH",
     "keywords": [
         "dart",
         "flutter",
@@ -29,21 +29,32 @@
         "workspaceContains:*/*.dart",
         "workspaceContains:*/*/*.dart"
     ],
-    "main": "./extension.js",
+    "main": "./dist/extension.js",
     "scripts": {
-        "lint": "eslint .",
-        "pretest": "npm run lint",
-        "test": "node ./test/runTest.js"
+        "vscode:prepublish": "npm run package",
+        "compile": "webpack",
+        "watch": "webpack --watch",
+        "package": "webpack --mode production --devtool hidden-source-map",
+        "compile-tests": "tsc -p . --outDir out",
+        "watch-tests": "tsc -p . -w --outDir out",
+        "pretest": "npm run compile-tests && npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
     },
     "devDependencies": {
         "@types/vscode": "^1.78.0",
         "@types/glob": "^8.1.0",
         "@types/mocha": "^10.0.1",
         "@types/node": "16.x",
+        "@typescript-eslint/eslint-plugin": "^5.59.1",
+        "@typescript-eslint/parser": "^5.59.1",
         "eslint": "^8.39.0",
         "glob": "^8.1.0",
         "mocha": "^10.2.0",
         "typescript": "^5.0.4",
+        "ts-loader": "^9.4.2",
+        "webpack": "^5.81.0",
+        "webpack-cli": "^5.0.2",
         "@vscode/test-electron": "^2.3.0"
     }
 }
